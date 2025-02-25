@@ -1,5 +1,5 @@
-<form>
-  ProductId:<input type="number" [(ngModel)]="newProduct.productId" name="productId">
+<div class="input-container"><form>
+  ProductId:  <input type="number" [(ngModel)]="newProduct.productId" name="productId">
   <br>
 
   ProductName:<input type="text" [(ngModel)]="newProduct.productName" name="productName">
@@ -10,6 +10,6 @@
   <br>
   ProductImage:<input type="text" [(ngModel)]="newProduct.productImageUrl" name="productImageUrl">
   <br>
-  <button (click)="addProduct()"> Add </button>
+  <button (click)="addProduct()" class="btn btn-danger"> Add </button>
 </form>
-<h1>This is Add file</h1>
+</div>

@@ -1,0 +1,26 @@
+
+<form #actorForm="ngForm" (ngSubmit)="onSubmit(actorForm)">
+    <label for="name">Actor Name:</label>
+    <input type="text" id="name" [(ngModel)]="actor.name" name="name" required #name="ngModel">
+    <div *ngIf="name.invalid && name.touched" class="error">
+      Actor Name is required.
+    </div>
+    <br>
+  
+    <label for="age">Actor Age:</label>
+    <input type="number" id="age" [(ngModel)]="actor.age" name="age" required min="18" max="100" #age="ngModel">
+    <div *ngIf="age.invalid && age.touched" class="error">
+      Please enter a valid age between 18 and 100.
+    </div>
+    <br>
+  
+    <label for="email">Actor Email:</label>
+    <input type="email" id="email" [(ngModel)]="actor.email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" #email="ngModel">
+    <div *ngIf="email.invalid && email.touched" class="error">
+      Please enter a valid email.
+    </div>
+    <br>
+  
+    <button type="submit" [disabled]="actorForm.invalid" class="btn btn-danger">Submit</button>
+  </form>
+  

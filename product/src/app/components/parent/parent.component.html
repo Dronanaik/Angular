@@ -1,4 +1,6 @@
-
+<strong><p>PARENT COMPONENT</p></strong>
+<p>Received from Child: {{ childMessage | star}}</p>
+<div class="table-div">
 <table class="table">
     <thead>
         <tr>
@@ -10,15 +12,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products" (click)="selectedProduct(product)">
             <td>{{product.productId}}</td>
             <td>{{product.productName}}</td>
             <td>{{product.productPrice}}</td>
             <td>{{product.productDescription}}</td>
             <td>{{product.productImageUrl}}</td>          
-            <td><button (click)="deleteProduct(product.productId)" class="btn btn-danger"> Delete</button></td>
-            <td><button class="btn btn-primary">Update</button></td>
+            
         </tr>
     </tbody>
 </table>
-
+</div>
+<hr>
+<app-child [message]="parentMessage" (notifyParent)="receiveMessage($event)" *ngIf="product" [selectedProduct]="product"></app-child>

@@ -1,4 +1,9 @@
 
+<div>
+<h1><strong>All Available Products</strong></h1><br>
+Search: <br>
+<input type="text" [(ngModel)]='query' name="query">
+{{query}}
 <table class="table">
     <thead>
         <tr>
@@ -10,15 +15,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products | search:query">
             <td>{{product.productId}}</td>
             <td>{{product.productName}}</td>
             <td>{{product.productPrice}}</td>
             <td>{{product.productDescription}}</td>
             <td>{{product.productImageUrl}}</td>          
-            <td><button (click)="deleteProduct(product.productId)" class="btn btn-danger"> Delete</button></td>
-            <td><button class="btn btn-primary">Update</button></td>
+            
         </tr>
     </tbody>
 </table>
+
+</div>
 
