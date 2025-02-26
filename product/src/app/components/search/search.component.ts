@@ -5,7 +5,7 @@ import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../../pipes/search.pipe';
 import { ProductApiService } from '../../services/product-api.service';
-import { error } from 'console';
+
 
 
 @Component({

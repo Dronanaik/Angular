@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductServiceService } from '../../services/product-service.service';
 import { Product } from '../../entity/product';
 import { CommonModule } from '@angular/common';
-
+import { SortPipe } from '../../pipes/sort.pipe';
 
 @Component({
   selector: 'app-display-products',
-  imports: [CommonModule],
+  imports: [CommonModule,SortPipe],
   templateUrl: './display-products.component.html',
   styleUrl: './display-products.component.css'
 })

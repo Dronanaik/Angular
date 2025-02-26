@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Product } from '../entity/product';
-import { serialize } from 'v8';
+
 
 @Pipe({
   name: 'search'
