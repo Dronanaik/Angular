@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <div class="card-header text-white bg-primary text-center">
+      <h2>User Profile</h2>
+    </div>
+
+    <div class="card-body">
+      <!-- Display profile details when NOT in editing mode -->
+      <table class="table table-bordered" *ngIf="!isEditing">
+        <tr><th>Name:</th><td>{{ profile.name }}</td></tr>
+        <tr><th>Date of Birth:</th><td>{{ profile.dateOfBirth || profile.date_of_birth }}</td></tr>
+        <tr><th>Age:</th><td>{{ calculatedAge }} years</td></tr>
+        <tr><th>Phone:</th><td>{{ profile.phone }}</td></tr>
+        <tr><th>Email:</th><td>{{ profile.email }}</td></tr>
+      </table>
+
+      <!-- Show Edit Profile button only when NOT in editing mode -->
+      <div class="text-center" *ngIf="!isEditing">
+        <button class="btn btn-warning" (click)="toggleEdit()">Edit Profile</button>
+      </div>
+
+      <!-- Form for Editing Profile -->
+      <form *ngIf="isEditing" (ngSubmit)="saveProfile()">
+        <div class="mb-3">
+          <label class="form-label">Name:</label>
+          <input type="text" class="form-control" [(ngModel)]="profile.name" name="name" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date of Birth:</label>
+          <input type="date" class="form-control" [(ngModel)]="profile.dateOfBirth" name="dateOfBirth" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Phone:</label>
+          <input type="text" class="form-control" [(ngModel)]="profile.phone" name="phone" required />
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-secondary ms-2" (click)="toggleEdit()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
